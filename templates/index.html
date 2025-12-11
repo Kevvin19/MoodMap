@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block titulo %}MoodMap - Medellín{% endblock %}</title>
+    <link rel="stylesheet" href="../static/css/estilos.css" />
+    <link rel="icon" href="../static/img/ico.png" />
+  </head>
+  <body>
+    <div class="encabezado">
+      <div class="contenedor-encabezado">
+        <a href="/" class="logo-link">
+          <img src="../static/img/ico.png" alt="MoodMap" class="logo" />
+          <h1 class="titulo-app">MoodMap</h1>
+          <p class="subtitulo-app">Medellín</p>
+        </a>
+      </div>
+    </div>
+
+    <div class="contenido-principal">{% block contenido %}{% endblock %}</div>
+
+    <div class="pie-pagina">
+      <p>2025 MoodMap - Lugares que sintonizan contigo</p>
+      <p class="hecho-con">
+        Hecho con 💜 en Medellín, por Brayan, Luisa y Kevvin
+      </p>
+    </div>
+    {% block scripts %}{% endblock %}
+  </body>
+</html>

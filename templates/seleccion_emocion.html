@@ -1,0 +1,167 @@
+{% extends "index.html" %} {% block titulo %}MoodMap - Selecciona tu emoción{%
+endblock %} {% block contenido %}
+<div class="contenedor-pagina">
+  <h1 class="titulo-pagina">¿Cómo te sientes hoy?</h1>
+
+  <form action="/resultados" method="GET">
+    <div class="contenedor-carrusel">
+      <button type="button" class="flecha-boton" id="flechaIzquierda">←</button>
+
+      <div class="carrusel-emociones" id="carruselEmociones">
+        <div class="lista-emociones">
+          <div class="tarjeta-emocion" data-emocion="Aburrido">
+            <div class="icono-emocion">😑</div>
+            <div class="nombre-emocion">Aburrido</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Ansioso">
+            <div class="icono-emocion">😟</div>
+            <div class="nombre-emocion">Ansioso</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Feliz">
+            <div class="icono-emocion">😊</div>
+            <div class="nombre-emocion">Feliz</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Triste">
+            <div class="icono-emocion">😢</div>
+            <div class="nombre-emocion">Triste</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Relajado">
+            <div class="icono-emocion">😌</div>
+            <div class="nombre-emocion">Relajado</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Estresado">
+            <div class="icono-emocion">😰</div>
+            <div class="nombre-emocion">Estresado</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Aburrido">
+            <div class="icono-emocion">😑</div>
+            <div class="nombre-emocion">Aburrido</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Ansioso">
+            <div class="icono-emocion">😟</div>
+            <div class="nombre-emocion">Ansioso</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Feliz">
+            <div class="icono-emocion">😊</div>
+            <div class="nombre-emocion">Feliz</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Triste">
+            <div class="icono-emocion">😢</div>
+            <div class="nombre-emocion">Triste</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Relajado">
+            <div class="icono-emocion">😌</div>
+            <div class="nombre-emocion">Relajado</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Estresado">
+            <div class="icono-emocion">😰</div>
+            <div class="nombre-emocion">Estresado</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Aburrido">
+            <div class="icono-emocion">😑</div>
+            <div class="nombre-emocion">Aburrido</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Ansioso">
+            <div class="icono-emocion">😟</div>
+            <div class="nombre-emocion">Ansioso</div>
+          </div>
+          <div class="tarjeta-emocion activa" data-emocion="Feliz">
+            <div class="icono-emocion">😊</div>
+            <div class="nombre-emocion">Feliz</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Triste">
+            <div class="icono-emocion">😢</div>
+            <div class="nombre-emocion">Triste</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Relajado">
+            <div class="icono-emocion">😌</div>
+            <div class="nombre-emocion">Relajado</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Estresado">
+            <div class="icono-emocion">😰</div>
+            <div class="nombre-emocion">Estresado</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Aburrido">
+            <div class="icono-emocion">😑</div>
+            <div class="nombre-emocion">Aburrido</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Ansioso">
+            <div class="icono-emocion">😟</div>
+            <div class="nombre-emocion">Ansioso</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Feliz">
+            <div class="icono-emocion">😊</div>
+            <div class="nombre-emocion">Feliz</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Triste">
+            <div class="icono-emocion">😢</div>
+            <div class="nombre-emocion">Triste</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Relajado">
+            <div class="icono-emocion">😌</div>
+            <div class="nombre-emocion">Relajado</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Estresado">
+            <div class="icono-emocion">😰</div>
+            <div class="nombre-emocion">Estresado</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Aburrido">
+            <div class="icono-emocion">😑</div>
+            <div class="nombre-emocion">Aburrido</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Ansioso">
+            <div class="icono-emocion">😟</div>
+            <div class="nombre-emocion">Ansioso</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Feliz">
+            <div class="icono-emocion">😊</div>
+            <div class="nombre-emocion">Feliz</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Triste">
+            <div class="icono-emocion">😢</div>
+            <div class="nombre-emocion">Triste</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Relajado">
+            <div class="icono-emocion">😌</div>
+            <div class="nombre-emocion">Relajado</div>
+          </div>
+          <div class="tarjeta-emocion" data-emocion="Estresado">
+            <div class="icono-emocion">😰</div>
+            <div class="nombre-emocion">Estresado</div>
+          </div>
+        </div>
+      </div>
+
+      <button type="button" class="flecha-boton" id="flechaDerecha">→</button>
+    </div>
+
+    <input
+      type="hidden"
+      name="emocion"
+      id="emocionSeleccionada"
+      value="Feliz"
+    />
+
+    <div class="selector-zona">
+      <label class="etiqueta-formulario">¿En qué zona buscas?</label>
+      <select name="zona" class="select-formulario">
+        <option value="Cualquier zona">Cualquier zona</option>
+        <option value="Centro">Centro</option>
+        <option value="Poblado">Poblado</option>
+        <option value="Laureles">Laureles</option>
+        <option value="Belén">Belén</option>
+        <option value="Envigado">Envigado</option>
+      </select>
+    </div>
+
+    <div class="acciones-formulario">
+      <button type="submit" class="boton boton-primario">Buscar lugares</button>
+    </div>
+  </form>
+</div>
+{% endblock %} {% block scripts %}
+<script src="../static/js/main.js"></script>
+<script>
+  inicializarCarruselEmociones();
+</script>
+{% endblock %}

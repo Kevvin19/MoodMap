@@ -1,0 +1,45 @@
+{% extends "index.html" %} {% block titulo %}MoodMap - Resultados{% endblock %}
+{% block contenido %}
+<div class="contenedor-pagina">
+  <h1 class="titulo-pagina">Resultados</h1>
+
+  <p class="texto-centrado texto-gris margen-abajo">
+    Mostrando lugares para: <strong>{{ emocion }}</strong> {% if zona and zona
+    != 'Cualquier zona' %} en <strong>{{ zona }}</strong>
+    {% endif %}
+  </p>
+
+  <div class="cuadricula-lugares">
+    {% for lugar in lugares %}
+    <div class="tarjeta-lugar">
+      <div class="imagen-lugar">
+        <img src="../static/img/{{ lugar.imagen }}" alt="{{ lugar.nombre }}" />
+      </div>
+
+      <div class="encabezado-lugar">
+        <div class="nombre-lugar">{{ lugar.nombre }}</div>
+        <span class="tipo-lugar">{{ lugar.tipo }}</span>
+      </div>
+
+      <div class="cuerpo-lugar">
+        <div class="zona-lugar">📍 {{ lugar.zona }}</div>
+        <div class="descripcion-lugar">{{ lugar.descripcion }}</div>
+      </div>
+
+      <div class="pie-lugar">
+        <a
+          href="/detalle/{{ lugar.id }}?emocion={{ emocion }}"
+          class="boton boton-primario boton-completo"
+        >
+          Ver detalle
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="acciones-formulario">
+    <a href="/seleccion-emocion" class="boton boton-secundario">← Volver</a>
+  </div>
+</div>
+{% endblock %}

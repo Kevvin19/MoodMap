@@ -1,0 +1,19 @@
+{% extends "index.html" %} {% block titulo %}MoodMap - Bienvenido{% endblock %}
+{% block contenido %}
+<div class="contenedor-bienvenida">
+  <div class="caja-bienvenida">
+    <img src="../static/img/ico.png" alt="MoodMap" class="logo-grande" />
+    <h1 class="titulo-grande">MoodMap</h1>
+    <p class="texto-grande">Lugares que sintonizan contigo</p>
+
+    <div class="botones-inicio">
+      <a href="/seleccion-emocion" class="boton boton-primario">
+        🔍 Buscar lugar
+      </a>
+      <a href="/panel-vendedor" class="boton boton-secundario">
+        📊 Panel vendedor
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

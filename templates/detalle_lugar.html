@@ -1,0 +1,142 @@
+{% extends "index.html" %} {% block titulo %}MoodMap - {{ lugar.nombre }}{%
+endblock %} {% block contenido %}
+<div class="contenedor-pagina">
+  <h1 class="titulo-pagina">{{ lugar.nombre }}</h1>
+
+  <div class="caja-info-lugar">
+    <div class="diseño-tres-columnas">
+      <div class="foto-lugar">
+        <img src="../static/img/{{ lugar.imagen }}" alt="{{ lugar.nombre }}" />
+        <div class="etiqueta-tipo">{{ lugar.tipo }}</div>
+      </div>
+
+      <div class="datos-lugar">
+        <div class="item-info">
+          <span class="icono-info">📍</span>
+          <div>
+            <span class="etiqueta-info">Zona</span>
+            <span class="valor-info">{{ lugar.zona }}</span>
+          </div>
+        </div>
+
+        <div class="item-info">
+          <span class="icono-info">🏠</span>
+          <div>
+            <span class="etiqueta-info">Dirección</span>
+            <span class="valor-info">{{ lugar.direccion }}</span>
+          </div>
+        </div>
+
+        <div class="item-info">
+          <span class="icono-info">📝</span>
+          <div>
+            <span class="etiqueta-info">Descripción</span>
+            <p class="valor-info">{{ lugar.descripcion_larga }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="columna-mapa">
+        <div class="contenedor-mapa">
+          <iframe
+            src="https://maps.google.com/maps?q={{ lugar.coordenadas }}({{ lugar.nombre | replace(' ', '+') }})&z=16&output=embed"
+            class="iframe-mapa"
+            loading="lazy"
+          >
+          </iframe>
+        </div>
+        <div class="etiqueta-tipo">📍 Ubicación</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="caja-calificacion">
+    <h2 class="subtitulo-seccion">¿Cómo te hizo sentir este lugar?</h2>
+
+    <form
+      method="POST"
+      action="/detalle/{{ lugar.id }}?emocion={{ emocion_inicial }}&zona={{ request.args.get('zona', 'Cualquier zona') }}"
+    >
+      <div class="grupo-formulario">
+        <label class="etiqueta-formulario">Emoción antes:</label>
+        <select name="emocion_antes" class="select-formulario">
+          <option>{{ emocion_inicial }}</option>
+          <option>Feliz</option>
+          <option>Triste</option>
+          <option>Relajado</option>
+          <option>Estresado</option>
+          <option>Aburrido</option>
+          <option>Ansioso</option>
+        </select>
+      </div>
+
+      <div class="grupo-formulario">
+        <label class="etiqueta-formulario">Emoción después:</label>
+        <select name="emocion_despues" class="select-formulario">
+          <option value="">Selecciona...</option>
+          <option selected>Feliz</option>
+          <option>Triste</option>
+          <option>Relajado</option>
+          <option>Estresado</option>
+          <option>Aburrido</option>
+          <option>Ansioso</option>
+        </select>
+      </div>
+
+      <div class="grupo-formulario">
+        <label class="etiqueta-formulario">Calificación (1 a 5):</label>
+        <div class="contenedor-calificacion">
+          <input
+            type="number"
+            name="calificacion"
+            id="inputCalificacion"
+            class="input-numero"
+            min="1"
+            max="5"
+            value="4"
+          />
+          <span class="mostrar-estrellas" id="mostrarEstrellas">
+            <span>⭐</span><span>⭐</span><span>⭐</span><span>⭐</span
+            ><span>☆</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="grupo-formulario">
+        <label class="etiqueta-formulario">Comentario (opcional):</label>
+        <textarea
+          name="comentario"
+          class="textarea-formulario"
+          rows="4"
+          placeholder="Cuéntanos tu experiencia..."
+        ></textarea>
+      </div>
+
+      <div class="acciones-formulario-doble">
+        <a
+          href="/resultados?emocion={{ emocion_inicial }}&zona={{ request.args.get('zona', 'Cualquier zona') }}"
+          class="boton boton-secundario"
+        >
+          ← Volver
+        </a>
+        <button type="submit" class="boton boton-primario">
+          Enviar calificación
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %} {% block scripts %}
+<script>
+  const inputCalif = document.getElementById("inputCalificacion");
+  const mostrarEst = document.getElementById("mostrarEstrellas");
+
+  inputCalif.addEventListener("input", function () {
+    const valor = parseInt(this.value);
+    let html = "";
+    for (let i = 0; i < 5; i++) {
+      html += i < valor ? "<span>⭐</span>" : "<span>☆</span>";
+    }
+    mostrarEst.innerHTML = html;
+  });
+</script>
+{% endblock %}

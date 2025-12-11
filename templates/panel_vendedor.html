@@ -1,0 +1,53 @@
+{% extends "index.html" %} {% block titulo %}MoodMap - Panel de Vendedor{%
+endblock %} {% block contenido %}
+<div class="contenedor-pagina">
+  <h1 class="titulo-pagina">Panel para Negocios</h1>
+
+  <p class="texto-centrado texto-gris margen-abajo">
+    Aquí puedes ver las calificaciones que han recibido tus lugares
+  </p>
+
+  <div class="caja-calificaciones">
+    <h2 class="subtitulo-seccion">Calificaciones Recibidas</h2>
+
+    {% if calificaciones %}
+    <table class="tabla-calificaciones">
+      <thead>
+        <tr>
+          <th>Lugar</th>
+          <th>Emoción Antes</th>
+          <th>Emoción Después</th>
+          <th>Calificación</th>
+          <th>Comentario</th>
+          <th>Fecha</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for cal in calificaciones %}
+        <tr>
+          <td>{{ cal.nombre_lugar }}</td>
+          <td>{{ cal.emocion_antes }}</td>
+          <td>{{ cal.emocion_despues }}</td>
+          <td>{{ cal.calificacion }} ⭐</td>
+          <td>{{ cal.comentario or '(Sin comentario)' }}</td>
+          <td>{{ cal.fecha }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+    <p class="margen-arriba">
+      <strong>Total:</strong> {{ calificaciones|length }} calificaciones
+    </p>
+    {% else %}
+    <p class="texto-centrado texto-gris padding-grande">
+      📊 Aún no hay calificaciones registradas
+    </p>
+    {% endif %}
+  </div>
+
+  <div class="acciones-formulario">
+    <a href="/" class="boton boton-secundario">← Volver al inicio</a>
+  </div>
+</div>
+{% endblock %}
